@@ -3,7 +3,10 @@
         <h1 v-on:mousemove="getConsole()">Home Component {{ "Hello".length }}</h1>
         <button v-on:click="getData('button 1 click')">Click Me</button>
         <button v-on:dblclick="getData('button 1 click')">Click Me</button>
-        <h2>{{ count }}</h2>
+        <h2>{{ count }}</h2>>
+        <h1>Two Way Binding</h1>
+        <input type="text" v-model="data"/>
+        <h2>{{ data }}</h2>
     </div>
 </template>
 
@@ -12,7 +15,8 @@
         name: "Home",       
         data(){
             return{
-               count: 0 
+               count: 0,
+               data: 0
             }
         },
         methods: {
