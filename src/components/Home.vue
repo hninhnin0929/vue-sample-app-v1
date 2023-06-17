@@ -8,8 +8,7 @@
 
 <script>
     export default {
-        name: "Home",
-        
+        name: "Home",       
         data(){
             return{
                 email: "anil@test.com", 
