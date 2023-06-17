@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Get Checkbox & Radio Button Value</h1>
+        <!-- <h1>Get Checkbox & Radio Button Value</h1>
         <h3>Technology</h3>
 
         <label for="java">Java</label>
@@ -20,7 +20,11 @@
         <input type="radio" value="developer" id="developer" v-model="profession" name="profession"/>
 
         <h4>Technology : {{ technology }}</h4>
-        <h4>I am a : {{ profession }}</h4>
+        <h4>I am a : {{ profession }}</h4> -->
+
+        <h1 v-if="show">Conditions in Vue js</h1>
+        <h1 v-else>Else Conditions in Vue js</h1>
+        <button v-on:click="show=false">Click Me</button>
     </div>
 </template>
 
@@ -29,8 +33,7 @@
         name: "Home",       
         data(){
             return{
-               technology : [],
-               profession : null
+               show : true
             }
         },
         methods: {
