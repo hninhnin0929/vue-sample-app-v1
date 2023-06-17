@@ -1,77 +1,30 @@
 <template>
     <div>
-        <!-- <h1>Get Checkbox & Radio Button Value</h1>
-        <h3>Technology</h3>
+        
+        <h1>Pass Data to Child Component</h1>
+        <Child :name="name" :data="user" :getData="getData"/>
 
-        <label for="java">Java</label>
-        <input type="checkbox" value="java" v-model="technology" id="java" />
-
-        <label for="node">Node</label>
-        <input type="checkbox" value="node" v-model="technology" id="java" />
-
-        <label for="php">Java</label>
-        <input type="checkbox" value="php" v-model="technology" id="php" />
-
-        <br/><br/>
-        <h3>Profession</h3>
-        <label for="student">Student</label>
-        <input type="radio" value="student" id="student" v-model="profession" name="profession"/>
-        <label for="developer">Developer</label>
-        <input type="radio" value="developer" id="developer" v-model="profession" name="profession"/>
-
-        <h4>Technology : {{ technology }}</h4>
-        <h4>I am a : {{ profession }}</h4> -->
-
-        <!-- <h1 v-if="show">Conditions in Vue js</h1>
-        <h1 v-else>Else Conditions in Vue js</h1>
-        <button v-on:click="show=false">Click Me</button> -->
-
-        <h1>For Loop in Vue js</h1>
-        <ul>
-            <li v-for="item in technology" :key="item">
-                {{ item }}
-            </li>
-        </ul>
-        <br /><br />
-        <ul>
-            <li v-for="item in users" :key="item.name">
-                User name is {{ item.name }} : and Email is {{ item.email }}
-            </li>
-        </ul>
     </div>
 </template>
 
 <script>
+    import Child from './Child.vue'
+
     export default {
-        name: "Home",       
+
+        name: "Home", 
+        components: {
+            Child
+        },      
         data(){
             return{
-               technology: [
-                "java",
-                "php",
-                "node",
-                "html",
-                "asp"
-               ],
-               users: [
-                {
-                name: 'anil',
-                email: 'anil@test.com'
-                },
-                {
-                name: 'anil1',
-                email: 'anil1@test.com'
-                },
-                {
-                name: 'anil2',
-                email: 'anil2@test.com'
-                },
-            ]
+                name: 'bruce',
+                user: {name: 'bruse', email: 'bruce@test.com'}
             }
         },
         methods: {
             getData(){
-               
+               alert("function called");
             },
         }
     }
