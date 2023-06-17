@@ -1,12 +1,13 @@
 <template>
     <div>
-        <h1 v-on:mousemove="getConsole()">Home Component {{ "Hello".length }}</h1>
-        <button v-on:click="getData('button 1 click')">Click Me</button>
-        <button v-on:dblclick="getData('button 1 click')">Click Me</button>
-        <h2>{{ count }}</h2>>
-        <h1>Two Way Binding</h1>
-        <input type="text" v-model="data"/>
-        <h2>{{ data }}</h2>
+        <h2>Get input field value</h2>
+        <input type="text" placeholder="enter email" 
+            v-model="email"/>
+        <br/>
+        <input type="password" placeholder="enter password" 
+            v-model="password"/>
+        <br/><br/>
+        <button type="button" v-on:click="getData()">Get Data</button>
     </div>
 </template>
 
@@ -15,17 +16,14 @@
         name: "Home",       
         data(){
             return{
-               count: 0,
-               data: 0
+               email: null,
+               password: null
             }
         },
         methods: {
-            getData(data){
-               this.count = this.count + 1
+            getData(){
+               console.warn("values : ", this.email, this.password);
             },
-            getConsole(){
-                this.count = this.count - 1
-            }
         }
     }
 </script>
