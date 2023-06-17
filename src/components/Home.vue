@@ -22,9 +22,22 @@
         <h4>Technology : {{ technology }}</h4>
         <h4>I am a : {{ profession }}</h4> -->
 
-        <h1 v-if="show">Conditions in Vue js</h1>
+        <!-- <h1 v-if="show">Conditions in Vue js</h1>
         <h1 v-else>Else Conditions in Vue js</h1>
-        <button v-on:click="show=false">Click Me</button>
+        <button v-on:click="show=false">Click Me</button> -->
+
+        <h1>For Loop in Vue js</h1>
+        <ul>
+            <li v-for="item in technology" :key="item">
+                {{ item }}
+            </li>
+        </ul>
+        <br /><br />
+        <ul>
+            <li v-for="item in users" :key="item.name">
+                User name is {{ item.name }} : and Email is {{ item.email }}
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -33,7 +46,27 @@
         name: "Home",       
         data(){
             return{
-               show : true
+               technology: [
+                "java",
+                "php",
+                "node",
+                "html",
+                "asp"
+               ],
+               users: [
+                {
+                name: 'anil',
+                email: 'anil@test.com'
+                },
+                {
+                name: 'anil1',
+                email: 'anil1@test.com'
+                },
+                {
+                name: 'anil2',
+                email: 'anil2@test.com'
+                },
+            ]
             }
         },
         methods: {
