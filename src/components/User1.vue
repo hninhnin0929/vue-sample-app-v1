@@ -1,7 +1,8 @@
 <template>
     <div>
         
-        <h1>Home Component</h1>
+        <h1>User1 Component</h1>
+        <button v-on:click="getUser(userName)">Send User Name to Parent</button>
         
     </div>
 </template>
@@ -11,13 +12,16 @@
 
     export default {
 
-        name: "Home", 
+        name: "User1", 
         components: {
             
-        },      
+        },   
+        props: {
+            getUser: Function,
+        }, 
         data(){
             return{
-                
+               userName: "Peter" 
             }
         },
         methods: {
