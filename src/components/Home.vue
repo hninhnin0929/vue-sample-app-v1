@@ -1,41 +1,33 @@
 <template>
     <div>
         
-        <h1>Reuse Component</h1>
-        <!-- <User/> -->
-        <ul>
-            <li v-for="item in users" :key="item.name">
-                <!-- {{ item.name }} ---{{ item.emai }} -->
-                <User :data="item" :getData="getData"/>
+        <h1>{{ text }}</h1>
+        {{ tag }}
+        <div v-html="tag">
 
-            </li>
-        </ul>
+        </div>
+        
     </div>
 </template>
 
 <script>
-    import Child from './Child.vue'
-    import User from './User.vue'
+
 
     export default {
 
         name: "Home", 
         components: {
-            Child,
-            User
+            
         },      
         data(){
             return{
-                users: [
-                    {name: 'hnin', emai: "hnin@gmail.com"},
-                    {name: 'sam', emai: "sam@gmail.com"},
-                    {name: 'john', emai: "john@gmail.com"},
-                ]
+                text: "hnin hnin",
+                tag: "<h2>HNIN</h2>"
             }
         },
         methods: {
-            getData(name){                
-                alert("User Name: "+ name);
+            getData(name){
+                
             }
         }
     }
