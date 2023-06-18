@@ -1,27 +1,26 @@
 <template>
     <div>
         
-        <h1>Props in Vue js 3</h1>
-        <Student :name="name" />
-        <Teacher :name="name" />
+        <h1>Teacher Name is : {{ name }}</h1>
+        
     </div>
 </template>
 
 <script>
 
-    import Student from './Student.vue'
-    import Teacher from './Teacher.vue'
 
     export default {
 
-        name: "Home", 
+        name: "Teacher", 
+        props: {
+            // name: String,
+        },
         components: {
-            Student,
-            Teacher
+            
         },      
         data(){
             return{
-                name: "Bruce"
+                
             }
         },
         methods: {
