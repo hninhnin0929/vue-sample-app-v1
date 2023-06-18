@@ -1,7 +1,20 @@
 <template>
     <div>
         
-        <h1>Home Component</h1>
+        <h1>Simple Form</h1>
+        <p>{{ form }}</p>
+        <form>
+            <label>Email : </label>
+            <input type="text" placeholder="enter email" v-model="form.email"/>
+            <br /><br />
+
+            <label>Password : </label>
+            <input type="password" placeholder="enter password" v-model="form.password"/>
+            <br /><br />
+
+            <button type="button" v-on:click="login">Login</button>
+
+        </form>
         
     </div>
 </template>
@@ -17,12 +30,15 @@
         },      
         data(){
             return{
-                
+                form: {
+                    email: "",
+                    password: "",
+                }
             }
         },
         methods: {
-            getData(){
-                
+            login(){
+                console.warn(this.form);
             }
         }
     }
