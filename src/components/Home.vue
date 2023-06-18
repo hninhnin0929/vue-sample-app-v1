@@ -1,31 +1,42 @@
 <template>
     <div>
         
-        <h1>Pass Data to Child Component</h1>
-        <Child :name="name" :data="user" :getData="getData"/>
+        <h1>Reuse Component</h1>
+        <!-- <User/> -->
+        <ul>
+            <li v-for="item in users" :key="item.name">
+                <!-- {{ item.name }} ---{{ item.emai }} -->
+                <User :data="item" :getData="getData"/>
 
+            </li>
+        </ul>
     </div>
 </template>
 
 <script>
     import Child from './Child.vue'
+    import User from './User.vue'
 
     export default {
 
         name: "Home", 
         components: {
-            Child
+            Child,
+            User
         },      
         data(){
             return{
-                name: 'bruce',
-                user: {name: 'bruse', email: 'bruce@test.com'}
+                users: [
+                    {name: 'hnin', emai: "hnin@gmail.com"},
+                    {name: 'sam', emai: "sam@gmail.com"},
+                    {name: 'john', emai: "john@gmail.com"},
+                ]
             }
         },
         methods: {
-            getData(){
-               alert("function called");
-            },
+            getData(name){                
+                alert("User Name: "+ name);
+            }
         }
     }
 </script>
