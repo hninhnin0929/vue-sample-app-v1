@@ -1,17 +1,19 @@
 <template>
     <div>
         
-        <h1>Home</h1>
+        <h1>Non-Props Data</h1>
+        <User2 item="some data" name="user-cmp"/>
     </div>
 </template>
 
 <script>
 
+    import User2 from './User2.vue'
     export default {
 
-        name: "Home", 
+        name: "Non-props", 
         components: {
-
+            User2
         },      
         data(){
             return{
