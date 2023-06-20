@@ -2,19 +2,19 @@
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
     <!-- <router-view/> -->
-    <!-- <Home/> -->
-    <Watchers />
+    <Home/>
+    <!-- <Watchers /> -->
   </div>
 </template>
 
 <script>
 import Home from './components/Home.vue'
-import Watchers from './components/Watchers.vue'
+// import Watchers from './components/Watchers.vue'
 export default {
   name: 'App',
   components: {
     Home,
-    Watchers
+    // Watchers
   }
 }
 </script>
