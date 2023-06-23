@@ -1,7 +1,7 @@
 <template>
     <div>
         
-        <h1>Routing</h1>
+        <h1>Login Page</h1>
     </div>
 </template>
 
@@ -9,7 +9,7 @@
 
     export default {
 
-        name: "Home", 
+        name: "Login", 
         components: {
 
         },      

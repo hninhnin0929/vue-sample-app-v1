@@ -1,21 +1,21 @@
 <template>
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
-    <!-- <router-view/> -->
-    <Home/>
-    <!-- <Watchers /> -->
+    <router-link to="/">Home Page</router-link>
+    <router-link to="/Login">Login Page</router-link>
+    <router-link to="/Profile">Profile Page</router-link>
+    <router-view/>
   </div>
 </template>
 
 <script>
 import Home from './components/Home.vue'
-// import Watchers from './components/Watchers.vue'
 export default {
   name: 'App',
   components: {
     Home,
-    // Watchers
-  }
+    
+}
 }
 </script>
 
