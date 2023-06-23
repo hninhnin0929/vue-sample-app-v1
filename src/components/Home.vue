@@ -1,7 +1,7 @@
 <template>
     <div>
         
-        <h1>beforeMount and mounted {{ name }}</h1>
+        <h1>Home Components</h1>
     </div>
 </template>
 
@@ -15,20 +15,14 @@
         },      
         data(){
             return{
-                name: 'Hnin'
+                
             }
         },
         methods: {
             getData(){
                 
             }
-        },
-        beforeMount(){
-            console.warn("beforeMount", this.$el)
-        },
-        mounted(){
-            console.warn("mounted", this.$el)
-        },
+        }
     }
 </script>
 
