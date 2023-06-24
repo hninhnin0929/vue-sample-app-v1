@@ -3,7 +3,9 @@
     <!-- <img src="./assets/logo.png"> -->
     <router-link to="/">Home Page</router-link>
     <router-link to="/Login">Login Page</router-link>
-    <router-link to="/Profile">Profile Page</router-link>
+    <router-link to="/Profile/Hnin">Hnin's Profile Page</router-link>
+    <router-link to="/Profile/Snow">Snow's Profile Page</router-link>
+    <router-link to="/Profile/Nara">Nara's Profile Page</router-link>
     <router-view/>
   </div>
 </template>
