@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Home from '@/components/Home'
 import Profile from '@/components/Profile'
 import Login from '@/components/Login'
+import PageNotFound from '@/components/PageNotFound'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/Profile/:name',
       name: 'Profile',
       component: Profile
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: PageNotFound
     },
   ]
 })
