@@ -1,17 +1,20 @@
 <template>
-    <div>       
+    <div>
+        
         <h1>HOME</h1>
+        <base-button  class="info"><slot></slot></base-button>
     </div>
 </template>
 
 <script>
 
+    import BaseButton from './base-button.vue';
 
     export default {
 
-        name: "Home", 
+        name: "CallBaseButton", 
         components: {
-            
+            BaseButton
         },      
         data(){
             return{
