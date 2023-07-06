@@ -1,5 +1,6 @@
 <template>
-    <div class="bootcamp-register container">       
+    <div class="bootcamp-register container"> 
+        <p v-if="feedback">{{ feedback }}</p>      
         <form class="card-panel green-text" @submit.prevent="registerBootcamp" novalidate>
             <h2 class="center">Register for Bootcamp</h2>
             <div class="field">
@@ -28,6 +29,9 @@
                     </p>
                     <p class="errorMessage" v-if="!$v.bootcamp.email.email">
                         Email is invalid*
+                    </p>
+                    <p class="errorMessage" v-if="!$v.bootcamp.email.uniqueEmail">
+                        Email is already in use.*
                     </p>
                  </template>
             </div>
@@ -66,7 +70,8 @@
 
 <script>
 
-    import { required, email, minLength, maxLength, numeric } from 'vuelidate/lib/validators'
+    import axios from 'axios';
+import { required, email, minLength, maxLength, numeric } from 'vuelidate/lib/validators'
     export default {
 
         name: "BootcampRegister", 
@@ -75,12 +80,7 @@
         },      
         data(){
             return{
-                bootcamp: {
-                    name: '',
-                    email: '',
-                    location: '',
-                    phone_number: ''
-                },
+                bootcamp: this.createFreshBootcamp(),
                 feedback: '',
             }
         },
@@ -94,7 +94,19 @@
                 },
                 email: {
                     required,
-                    email
+                    email,
+                    async uniqueEmail(value) {
+                        if(value === "") return true;
+                        const response = await axios.get('http://localhost:3000/registrations');
+                        const registrations = response.data;
+                        const alreadyDoneRegistration = registrations.find(
+                            registration => registration.email === value
+                        )
+                        if(alreadyDoneRegistration) {
+                            return false;
+                        }
+                        return true;
+                    }
                 },
                 location: {
                     required
@@ -109,11 +121,29 @@
             }
         },
         methods: {
+            createFreshBootcamp() {
+                return {
+                    name: '',
+                    email: '',
+                    location: '',
+                    phone_number: ''
+                }
+            },
            registerBootcamp() {
                 this.$v.$touch();
                 if(!this.$v.$invalid) {
                     console.log('Form got successfully submitted....');
                     console.log(this.bootcamp);
+                    axios.post("http://localhost:3000/registrations", this.bootcamp)
+                    .then(reponse => {
+                        console.log(reponse.data);
+                        this.feedback =  "Thanks for registering for the bootcamp. We will soon contact you.";
+                        this.bootcamp = this.createFreshBootcamp();
+                        this.$v.bootcamp.$reset();
+                        setTimeout(() => {
+                            this.feedback = '';
+                        }, 2000);
+                    }).catch(console.error);
                 }
            }
         },
