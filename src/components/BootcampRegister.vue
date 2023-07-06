@@ -10,6 +10,12 @@
                     <p class="errorMessage" v-if="!$v.bootcamp.name.required">
                         Name is required*
                     </p>
+                    <p class="errorMessage" v-if="!$v.bootcamp.name.minLength">
+                        Name must be at least 3 characters in length*
+                    </p>
+                    <p class="errorMessage" v-if="!$v.bootcamp.name.maxLength">
+                        Name must be 50 characters in length or less*
+                    </p>
                  </template>
             </div>
             <div class="field">
@@ -41,7 +47,13 @@
                  @blur="$v.bootcamp.phone_number.$touch()">
                  <template v-if="$v.bootcamp.phone_number.$error">
                     <p class="errorMessage" v-if="!$v.bootcamp.phone_number.required">
-                        phone_number is required*
+                        Phone number is required*
+                    </p>
+                    <p class="errorMessage" v-if="!$v.bootcamp.phone_number.numeric">
+                        Only digits are allowed*
+                    </p>
+                    <p class="errorMessage" v-if="!$v.bootcamp.phone_number.ensureOnly10DigitsLong">
+                        Contact Number must be 10 digits long*
                     </p>
                  </template>
             </div>
@@ -54,7 +66,7 @@
 
 <script>
 
-    import { required, email } from 'vuelidate/lib/validators'
+    import { required, email, minLength, maxLength, numeric } from 'vuelidate/lib/validators'
     export default {
 
         name: "BootcampRegister", 
@@ -76,7 +88,9 @@
             // validations go here
             bootcamp: {
                 name: {
-                    required
+                    required,
+                    minLength: minLength(3),
+                    maxLength: maxLength(50)
                 },
                 email: {
                     required,
@@ -86,7 +100,11 @@
                     required
                 },
                 phone_number: {
-                    required
+                    required,
+                    numeric,
+                    ensureOnly10DigitsLong(value) {
+                        return value.trim().length === 10;
+                    }
                 },
             }
         },
