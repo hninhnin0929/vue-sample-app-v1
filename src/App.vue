@@ -6,17 +6,21 @@
     <router-link to="/Profile/Hnin">Hnin's Profile Page</router-link>
     <router-link to="/Profile/Snow">Snow's Profile Page</router-link>
     <router-link to="/Profile/Nara">Nara's Profile Page</router-link> -->
-    <router-view/>
+
+    <!-- <router-view/> -->
+    
+    <BootcampRegister/>
   </div>
 </template>
 
 <script>
 import Home from './components/Home.vue'
+import BootcampRegister from './components/BootcampRegister.vue';
 export default {
   name: 'App',
   components: {
     Home,
-    
+    BootcampRegister
 }
 }
 </script>
