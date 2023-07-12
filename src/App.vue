@@ -9,18 +9,18 @@
 
     <!-- <router-view/> -->
     
-    <BootcampRegister/>
+    <NextTick/>
   </div>
 </template>
 
 <script>
 import Home from './components/Home.vue'
-import BootcampRegister from './components/BootcampRegister.vue';
+import NextTick from './components/NextTick.vue';
 export default {
   name: 'App',
   components: {
     Home,
-    BootcampRegister
+    NextTick
 }
 }
 </script>
