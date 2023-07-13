@@ -9,18 +9,19 @@
 
     <!-- <router-view/> -->
     
-    <NextTick/>
+    <CustomEventParent />
   </div>
 </template>
 
 <script>
 import Home from './components/Home.vue'
 import NextTick from './components/NextTick.vue';
+import CustomEventParent from './components/CustomEventParent.vue';
 export default {
   name: 'App',
   components: {
     Home,
-    NextTick
+    CustomEventParent
 }
 }
 </script>
