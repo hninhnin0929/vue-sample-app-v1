@@ -21,7 +21,10 @@
             }
         },
         methods: {
-           
+           //Example
+           handleChange(event){
+            this.$emit("customChange", event.target.value.toUpperCase());
+           }
         },
     }
 </script>
