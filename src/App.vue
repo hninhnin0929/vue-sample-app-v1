@@ -9,19 +9,19 @@
 
     <!-- <router-view/> -->
     
-    <CustomEventParent />
+    <MixinTestComp />
   </div>
 </template>
 
 <script>
 import Home from './components/Home.vue'
-import NextTick from './components/NextTick.vue';
-import CustomEventParent from './components/CustomEventParent.vue';
+import MixinTestComp from './components/MixinTestComp.vue';
+
 export default {
   name: 'App',
   components: {
     Home,
-    CustomEventParent
+    MixinTestComp
 }
 }
 </script>
